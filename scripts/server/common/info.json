@@ -1,0 +1,48 @@
+[
+  {
+    "id": "1",
+    "command1": {
+      "name": "Биолог",
+      "logo": "BIOLOG",
+      "redCardNumber": 0,
+      "goals": 0
+    },
+    "command2": {
+      "name": "Велес Москва",
+      "logo": "VELES_MOSCOW",
+      "redCardNumber": 0,
+      "goals": 0
+    },
+    "time": "Не начался"
+  },
+  {
+    "id": "2",
+    "command1": {
+      "name": "УФА (Ж)",
+      "logo": "UFA_G",
+      "redCardNumber": 0,
+      "goals": 0
+    },
+    "command2": {
+      "name": "Коломна",
+      "logo": "KOLOMNA",
+      "redCardNumber": 0,
+      "goals": 0
+    },
+    "time": "Не начался"
+  },
+  {
+    "id": "3",
+    "command1": {
+      "name": "Локомотив",
+      "logo": "LOCOMOTIV",
+      "goals": 0
+    },
+    "command2": {
+      "name": "Динамо Брянск",
+      "logo": "DINAMO_BRYANSK",
+      "goals": 0
+    },
+    "time": "Не начался"
+  }
+]
