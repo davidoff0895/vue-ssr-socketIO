@@ -1,7 +1,7 @@
 const toastOptions = {
   action : {
     onClick : (e: any, toastObject: any) => {
-      toastObject.goAway(0);
+      toastObject.goAway(0)
     },
     text : 'х'
   },
@@ -10,6 +10,6 @@ const toastOptions = {
   duration: '3000',
   fullWidth: true,
   position: 'top-center',
-  type: 'error',
+  type: 'error'
 }
 export default toastOptions

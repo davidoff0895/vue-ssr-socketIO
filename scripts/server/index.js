@@ -3,6 +3,8 @@ const server = require('http').Server(app);
 const commonConfig = require('./config/common.conf');
 const PORT = commonConfig.PORT;
 const io = require('socket.io')(server);
+const info = require('./common/info');
+const randomise = require('./randomise');
 
 server.listen(PORT, (err) => {
   if (err) {
@@ -11,8 +13,11 @@ server.listen(PORT, (err) => {
   console.log(`server listening on :${PORT} port`);
 });
 io.on('connection', (socket) => {
-  socket.emit('news', {hello: 'world'});
-  socket.on('my other event', (data) => {
-    console.log(data)
-  })
+  const tweets = setInterval(() => {
+    const result = randomise(info);
+    socket.emit('news', result.tableInfo);
+    if (result.matchesIsEnded) {
+      clearInterval(tweets);
+    }
+  }, 1000);
 });
