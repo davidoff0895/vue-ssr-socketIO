@@ -42,24 +42,26 @@
   import Vue from 'vue'
   import Component from 'vue-class-component'
   import io from 'socket.io-client'
-  import {Getter} from 'vuex-class'
 
   @Component({
     name: 'info-table'
   })
   export default class InfoTable extends Vue {
-    @Getter('message')
-    private message: any
-    @Getter('connect')
-    private connect: any
-
     socket = io('localhost:8080')
-
+    $toasted: any
     items: any[] = []
 
     mounted() {
+      this.socket.on('connect', (data: any) => {
+        this.$toasted.show('Соединение установлено', {
+          type: 'success'
+        })
+      });
       this.socket.on('news', (data: any) => {
         this.items = data;
+      });
+      this.socket.on('disconnect', (data: any) => {
+        this.$toasted.show('Соединение разорвано')
       });
     }
 
@@ -82,10 +84,10 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .info-table {
     &__table {
-      margin: 0 auto;
+      margin: 5% auto;
 
       &__head {
         font-size: 18px;
@@ -120,5 +122,8 @@
 
   .in-progress {
     color: red;
+  }
+  .toasted-container.top-center {
+    top: 0;
   }
 </style>
